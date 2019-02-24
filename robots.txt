@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://blockchain-onlooker.github.io/sitemap.xml
