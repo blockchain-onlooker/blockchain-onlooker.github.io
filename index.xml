@@ -6,10 +6,19 @@
     <description>Recent content on blockchain-onlooker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 25 Feb 2019 04:41:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Feb 2019 18:16:13 +0800</lastBuildDate>
     
 	<atom:link href="http://blockchain-onlooker.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>http://blockchain-onlooker.github.io/about/</link>
+      <pubDate>Tue, 26 Feb 2019 18:16:13 +0800</pubDate>
+      
+      <guid>http://blockchain-onlooker.github.io/about/</guid>
+      <description>目前的press.one账号列表 https://press.one/p/v?s=65ad5cb3ed761f69d3cf156ef40f383d122a5dd6e8d1e4ecb5cc422bfeeb8fecd2a1ad985c89623a8f2661e986f52baac63c5068e0248fbfbbd78576286d1f720&amp;amp;h=bb3010ee3725825bb190c777ac057bd5bb4b8d2c14f65d9a6327d18f4a0e993e&amp;amp;a=8622dbd72361a10dddf330f0ac710dd52978a208&amp;amp;f=P1&amp;amp;v=3 https://press.one/p/v?s=4045e0838614478e21c9dcf50db231cd096f3ee20a6fc2bb7914d269e75d215acc9b95b1cc697bb8cf85ccd7e17eea94b540b4a3f235a1ad87bb32080f4d14051&amp;amp;h=adbfa0b4bea4bf9945c12767c5783c8f495f2360eac0325704e7a9d30c40f2fc&amp;amp;a=5905e22f7eca16f5c1f8a9480b3af5e3318fbc36&amp;amp;f=P1&amp;amp;v=3</description>
+    </item>
     
     <item>
       <title>关联telegram账号作为身份证明</title>
