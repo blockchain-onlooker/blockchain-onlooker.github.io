@@ -21,6 +21,17 @@
     </item>
     
     <item>
+      <title>修改Keystore文件密码</title>
+      <link>http://blockchain-onlooker.github.io/post/change-keystore-password/</link>
+      <pubDate>Mon, 04 Mar 2019 03:49:25 +0800</pubDate>
+      
+      <guid>http://blockchain-onlooker.github.io/post/change-keystore-password/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;看到开发文档里面提到使用的库 &lt;a href=&#34;https://github.com/ethereumjs/keythereum&#34;&gt;keythereum&lt;/a&gt; 就想尝试一下修改Keystore文件密码。基本上抄一下README的代码就搞定，只是读写Keystore文件的目录的操作不太直观&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
       <title>用人民币购买PRS</title>
       <link>http://blockchain-onlooker.github.io/post/cny-to-prs/</link>
       <pubDate>Sat, 02 Mar 2019 03:36:14 +0800</pubDate>
