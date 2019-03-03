@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>http://blockchain-onlooker.github.io/post/cny-to-prs/</loc>
+    <lastmod>2019-03-02T03:36:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://blockchain-onlooker.github.io/post/623d70b3c8fbabf7a0ddd108664d5e4e124f8cabf56a6bb8feb797313dbf45c3/</loc>
     <lastmod>2019-02-25T04:41:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -38,7 +45,7 @@
   
   <url>
     <loc>http://blockchain-onlooker.github.io/post/</loc>
-    <lastmod>2019-02-25T04:41:29+08:00</lastmod>
+    <lastmod>2019-03-02T03:36:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
