@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/bc_onlooker
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blockchain-onlooker.github.io
+  * I am bc_onlooker (https://keybase.io/bc_onlooker) on keybase.
+  * I have a public key with fingerprint 0BD2 8BCB 4F1D 08FC 3DFC  0C97 0BF8 1B5E B917 9A81
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010132b3f2f9c59d1264b9fc7560ce0f4036ea3f1f1dea87140711614b20b6d5f3240a",
+      "fingerprint": "0bd28bcb4f1d08fc3dfc0c970bf81b5eb9179a81",
+      "host": "keybase.io",
+      "key_id": "0bf81b5eb9179a81",
+      "kid": "010132b3f2f9c59d1264b9fc7560ce0f4036ea3f1f1dea87140711614b20b6d5f3240a",
+      "uid": "f9cc14a05e19fe1c906e9dc2f37c8019",
+      "username": "bc_onlooker"
+    },
+    "service": {
+      "hostname": "blockchain-onlooker.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1552124497,
+  "expire_in": 157680000,
+  "prev": "813a3a472ca777d809e5533f0b3a8a5daee9c0416d38ac2319ff3486cf8a4ade",
+  "seqno": 3,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtkktoFEkYx2c0oonPMSD4wrVE0JiEqq5+DmpkWRWWBZUYiSgOVdVVM50Zu8ee
+zpgxBHcVXZNd0Si7h0TxIEQhevCgF1ExPjEqEgSViHgQJQQMygiJiWK1mpNX61LU
+V7///3vwHZ0+MVIW/XCuS3/V+zIT7R2gke3723Y0A+rZBRBvBmn+9eIZm+eCRNqx
+QRxABBFWKBaKsJhm2UjRVWoJZmg6ZBwKFWKdEyyQQDYnpoFUaCCkI5UqkOq2JrCi
+QgIqgXDcJPezvuMGoS21FZMyqkoZNAXDtmCQWQakwkRU49RChkVMJIUpLxcqZHGU
+5Hi148mYfCS+lfcj/5PrbvxqJ00YUgnUOLIER8yCOrdspghsMBMiKwRz3HfJTi5p
+yhKem/G8NPdBSyWQH3mH8XC2YTPjUMZjaZYijls1DlcnnSDVSL/1mPW9wGNeRqKp
+IMjm4qFVUMiG2t2cJr67Jqjj2nK2UpHnfs7xXBBHkmSBE6ZBmqYgRVUtoxLwpqzj
+84QTEpqhmxkoT5iI56WniTDBRDUURgzDsE1ocU3DWECKiUk0m3BuMagi3cYmYQqW
+gxBYNXUmTKISm4Ow0V2uB+JY1kmS0jLnJF0SNPoctJS1RnFJJFoWWThncUlxfeeJ
+ay0dq6a2/7Z5fB8nTQiXMVJWOms8sm5gSuRs8fpHfjX5oLSv/2HHoG/d65j8X7mz
+/EJ076wZ/tCagbr0pfeD//wJ2tqunF6z58i7kUPJtZPtnklnah5f7dk4o330dv7B
++/KR/hU9z+Z9fvv3wZULTr7+t67hTmFaw7LhFXfFH//PsfYNz20rRwf+Kj4/ls24
+xTejR4zO2MmiiP7a1z1xRyXQY+tix8b6S0Zv3r99Pn/4xuU7hQ2r6k/dXB+LPE0N
+Nnsvurtqt9ZZt/Y9yw9dnLa60PFp68rYnsuli6s2La/5hbw8NNb7qK9h26LjJWB6
+xewnR+u7ajsHl85v7+6pGD5YUdOa/31ki75w0Vh16+olQ7Ormo7PbBqesGHX9ZH6
+2MYv
+=+XLt
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bc_onlooker
+
+==================================================================
