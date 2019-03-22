@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>对PressOne的账号系统分析和使用建议 - blockchain-onlooker</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="blockchain-onlooker" /><meta name="description" content=" 从开发者角度的分析PressOne的第一篇
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://blockchain-onlooker.github.io/post/pressone-keystore/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.78a68036.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="对PressOne的账号系统分析和使用建议" />
+<meta property="og:description" content="
+从开发者角度的分析PressOne的第一篇
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blockchain-onlooker.github.io/post/pressone-keystore/" /><meta property="article:published_time" content="2019-03-22T02:26:05&#43;08:00"/>
+<meta property="article:modified_time" content="2019-03-22T02:26:05&#43;08:00"/>
+
+<meta itemprop="name" content="对PressOne的账号系统分析和使用建议">
+<meta itemprop="description" content="
+从开发者角度的分析PressOne的第一篇
+">
+
+
+<meta itemprop="datePublished" content="2019-03-22T02:26:05&#43;08:00" />
+<meta itemprop="dateModified" content="2019-03-22T02:26:05&#43;08:00" />
+<meta itemprop="wordCount" content="2526">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="对PressOne的账号系统分析和使用建议"/>
+<meta name="twitter:description" content="
+从开发者角度的分析PressOne的第一篇
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">blockchain-onlooker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">blockchain-onlooker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">对PressOne的账号系统分析和使用建议</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-03-22 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#使用建议">使用建议</a></li>
+<li><a href="#账号系统分析">账号系统分析</a>
+<ul>
+<li><a href="#注册登录">注册登录</a></li>
+<li><a href="#安全隐患">安全隐患</a></li>
+<li><a href="#密钥对模式的问题">密钥对模式的问题</a></li>
+<li><a href="#官方的责任和可能的解决方案">官方的责任和可能的解决方案</a></li>
+</ul></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>从开发者角度的分析PressOne的第一篇</p>
+</blockquote>
+
+<blockquote>
+<p>本文主要内容是对目前（截止至2019年3月）PressOne账号系统潜在问题的一些个人看法，是比较长远的问题，而不是短期急需解决的事情。由于PressOne长期的开发路线图并没有公开，不确定开发团队对文中问题的具体态度，不排除已经在路线图中。“露露盗号门”让我意识到公众号也属于黑产集团的目标之一，PressOne面对相似问题可能并不是那么遥远。</p>
+</blockquote>
+
+<h2 id="使用建议">使用建议</h2>
+
+<p>放在前面怕太长不看，主要是避免丢号和盗号风险</p>
+
+<ol>
+<li>要有一个页面来列举自己常用的press.one账号地址，其中至少要有一个用手机登录的小号</li>
+<li>press.one用户简介应该注明自己主要发布内容的平台，最好有链接</li>
+<li>不要把press.one作为内容发布的唯一平台/渠道，首要考虑增加身份认证里面那些账号的订阅数，而不是PressOne账号的订阅数</li>
+<li>签名的内容应该填写原发布平台和链接</li>
+</ol>
+
+<h2 id="账号系统分析">账号系统分析</h2>
+
+<h3 id="注册登录">注册登录</h3>
+
+<p>目前PressOne的账号和比特币钱包是使用相同的模式，注册的时候直接在网页生成一个根密钥对，这个密钥的地址就是用户的PressOne地址。使用keystore文件登录时，服务器只是根据公钥来确定用户持有了私钥，并不保存私钥。优点是官方手上没有私钥，所以不能替代用户去签名和转账；另一方面也有很严重的缺点，如果用户丢失了keystore文件，或者忘记它的密码，官方无法提供找回密码的服务。</p>
+
+<h3 id="安全隐患">安全隐患</h3>
+
+<p>目前提供的3种登录方式，对应服务器保存的信息如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>登录方式</th>
+<th align="center">保存公钥和地址</th>
+<th align="center">保存加密的keystore文件</th>
+<th align="center">保存keystore文件密码</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>keystore文件登录</td>
+<td align="center">✅</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td>邮箱+密码</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td>手机</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+<td align="center">✅</td>
+</tr>
+</tbody>
+</table>
+
+<p>其中邮箱+密码登录和传统网络服务一样，存在社工撞库和数据库被拖库泄漏的风险。而手机登录，相当于把私钥上交到服务器，数据泄漏的后果更严重，官方内部也有操作账号去作恶的机会。</p>
+
+<p>而看上去最安全的keystore文件登录方式，也没法和比特币钱包等同。因为目前只能通过press.one网站的注册页面去创建密钥对，不能自己本地创建密钥对然后再上传。而press.one密钥创建几乎是瞬间的，说明页面没花费很大的功夫去增加种子的随机性。密钥对的随机性不强，加上生成方式单一，很难使用加强比特币钱包安全性的那些方案去保护PressOne的密钥对。不过PRS token并不需要大量存储在PressOne账号上，转账到Mixin无手续费，或许目前的方案是足够的。</p>
+
+<p>一旦账号被盗，并不能像其他服务那样靠修改密码解决问题，因为盗号者获取到的是密钥对本身，更新服务器上的keystore文件密码不能阻止盗号者登录。和比特币钱包一样，只要被盗就相当于作废。</p>
+
+<h3 id="密钥对模式的问题">密钥对模式的问题</h3>
+
+<p>对于大多数普通用户来说，可能之前完全没接触过类似模式的服务，一般来说完全去中心化的服务才会用。我除了比特币之外，用过的软件只有Bitmessage和ZeroNet是这样的。即便把群体限定在接触过比特币之类的加密货币的人里面，现在购买和交易也不一定需要自己保管密钥。我在Mixin上买币就完全没接触到密钥，想导入导出密钥都做不到，和2013年购买比特币的时候完全不一样。</p>
+
+<p>所以丢号将来会是很普遍的现象，PressOne的目标用户群体并不只是加密货币投资者和程序员，密钥对模式完全不适合面向绝大多数普通用户。
+丢号是普通用户面临的最大风险，和比特币不一样，损失的不止是账号里面的币，还有账号的订阅者，后续的打赏/合同收入。
+要通知别人因为丢号已经更换PressOne账号也不是容易的事情，比特币地址就是改一下简介说明，批量替换一下文章尾部的打赏链接，而PressOne具备类似微信公众号的内容发布平台的功能，会给作者和读者很大的迷惑性。如果订阅者只关注PressOne，而没去关注身份认证里面的账号，可能就觉得丢号的人无限期停更，不会发现新账号地址。</p>
+
+<h3 id="官方的责任和可能的解决方案">官方的责任和可能的解决方案</h3>
+
+<p>PressOne本身的模式就很特殊，它虽然采用了区块链技术，然而并不是去中心化的。和比特币、Bitmessage、ZeroNet这些开源项目不同，先推出的是网站 <a href="https://press.one">https://press.one</a> 然后再逐步提供API提供给第三方Dapp使用。
+官方的Dapp <a href="https://press.one">https://press.one</a> 是不可替代的主接入点，以目前开放的API来说，第三方Dapp不具备在功能方面完全替代官方Dapp的可能。twitter和新浪微博的官方和第三方客户端大概就是这样的关系。</p>
+
+<p>在我看来，官方团队可能是因为项目压力，为了短时间内提升用户体验，把一些本来应该让第三方去解决的事情自己抢着先做完，而没太考虑长期的风险。被攻击泄露数据之类的事情，如果是官方团队的问题，会影响用户对PressOne整个项目的看法，对有金融属性的区块链项目很不利。</p>
+
+<p>邮箱和手机登录，应该都是为了手机app端登录需要而做出来的功能，其中手机登录已经和加密货币交易所/web钱包的性质相似，直接持有密钥就是把账户模式重新中心化，是为了迎合普通用户对易用性的要求牺牲掉安全性。这让第三方去做会更合适，官方可以给第三方机构做认证，把一定数量PRS作为押金和奖励，既能满足一般用户对易用性的要求，出事也不是官方背锅。</p>
+
+<p>除了让第三方代持用户私钥，让用户不必自己保管keystore文件和密码之外。还有一个可能就是第三方作为中介，用户不必自己注册和使用PressOne账号，完全通过中介来执行所需的操作。前者的实现完全不需要API支持，但是需要官方监管和认证；后者能做到什么程度，取决于API开放多少接口。</p>
+
+<p>以目前开放的API，用户授权第三方Dapp之后产生的密钥对，和用户的根密钥对在创建签名和合同方面具备同等权限。在一定程度上可以缓解丢号的影响，但是财务方面的操作似乎还不能饶过用户根密钥。</p>
+
+<h2 id="总结">总结</h2>
+
+<ul>
+<li>keystore文件登录不适合绝大多数普通用户，容易丢失，被盗也无法补救</li>
+<li>现有的邮箱和手机号登录设计，让官方团队对用户账号安全存在直接责任，可能不是好事</li>
+<li>第三方可以把密钥对验证登录变成传统的中心化模式，但会存在风险和功能的局限性，官方可以考虑对第三方进行认证监管和开放更多API</li>
+</ul>
+
+<p>回到开头的使用建议，1-3都是考虑账号丢失之后减少失联的风险，提前告知读者去哪里找新内容，4是为了账号被盗之后让其他人有区分签名是不是本人发布的依据</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">blockchain-onlooker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-03-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/change-keystore-password/">
+            <span class="next-text nav-default">修改Keystore文件密码</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/blockchain-onlooker" class="iconfont icon-github" title="github"></a>
+  <a href="http://blockchain-onlooker.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">blockchain-onlooker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-135517826-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
