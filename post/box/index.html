@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>查验BOX公开信息的方法 - blockchain-onlooker</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="blockchain-onlooker" /><meta name="description" content=" 本文是对BOX规则中持仓公开部分信息如何查验的介绍，官网发布的规则 https://b.watch/#/zh_CN/rules
+相关阅读: BOX申购教程 https://fox.zendesk.com/hc/zh-cn/articles/360030397991
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://blockchain-onlooker.github.io/post/box/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.78a68036.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="查验BOX公开信息的方法" />
+<meta property="og:description" content="
+本文是对BOX规则中持仓公开部分信息如何查验的介绍，官网发布的规则 https://b.watch/#/zh_CN/rules
+
+相关阅读: BOX申购教程 https://fox.zendesk.com/hc/zh-cn/articles/360030397991
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://blockchain-onlooker.github.io/post/box/" /><meta property="article:published_time" content="2019-07-06T18:36:10&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-06T18:36:10&#43;08:00"/>
+
+<meta itemprop="name" content="查验BOX公开信息的方法">
+<meta itemprop="description" content="
+本文是对BOX规则中持仓公开部分信息如何查验的介绍，官网发布的规则 https://b.watch/#/zh_CN/rules
+
+相关阅读: BOX申购教程 https://fox.zendesk.com/hc/zh-cn/articles/360030397991
+">
+
+
+<meta itemprop="datePublished" content="2019-07-06T18:36:10&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-06T18:36:10&#43;08:00" />
+<meta itemprop="wordCount" content="891">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="查验BOX公开信息的方法"/>
+<meta name="twitter:description" content="
+本文是对BOX规则中持仓公开部分信息如何查验的介绍，官网发布的规则 https://b.watch/#/zh_CN/rules
+
+相关阅读: BOX申购教程 https://fox.zendesk.com/hc/zh-cn/articles/360030397991
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">blockchain-onlooker</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">blockchain-onlooker</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">查验BOX公开信息的方法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-06 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#查询box发行总量">查询BOX发行总量</a></li>
+<li><a href="#查询box在mixin网络的持仓公开">查询BOX在mixin网络的持仓公开</a></li>
+<li><a href="#在mixin网络中公开资产的方法">在mixin网络中公开资产的方法</a></li>
+<li><a href="#更深一层的思考">更深一层的思考</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>本文是对BOX规则中持仓公开部分信息如何查验的介绍，官网发布的规则 <a href="https://b.watch/#/zh_CN/rules">https://b.watch/#/zh_CN/rules</a></p>
+
+<p>相关阅读: BOX申购教程 <a href="https://fox.zendesk.com/hc/zh-cn/articles/360030397991">https://fox.zendesk.com/hc/zh-cn/articles/360030397991</a></p>
+</blockquote>
+
+<h3 id="查询box发行总量">查询BOX发行总量</h3>
+
+<p>从BOX公布的 <a href="http://https://etherscan.io/address/0x045414e728067ab3da4bceafc0d992d59183463a">合约地址页面</a> 可以找到 <a href="https://etherscan.io/token/0x045414e728067ab3da4bceafc0d992d59183463a">TokenTracker页面</a></p>
+
+<p>通过页面信息，核实总量就是200000000 并且100%的BOX都集中在 <a href="https://etherscan.io/token/0x045414e728067ab3da4bceafc0d992d59183463a?a=0xc4860ff307a4c425004b62fbb953420bfe76c551">0xc4860ff307a4c425004b62fbb953420bfe76c551</a></p>
+
+<p>如果后续有增发之类的变更，或者有人选择提现BOX到自己的eth地址，都能在上面的页面查询到相关信息。</p>
+
+<p>通过 <a href="https://mixin.one/snapshots/f5ef6b5d-cc5a-3d90-b2c0-a2fd386e7a3c">这个链接</a> 能查看mixin网络上最近的BOX交易和BOX总量，可以得知目前100%的BOX都在mixin网络内，发币的eth地址是mixin网络管理的地址。</p>
+
+<h3 id="查询box在mixin网络的持仓公开">查询BOX在mixin网络的持仓公开</h3>
+
+<p>把公开的令牌粘贴到 <a href="https://node.f1ex.io">https://node.f1ex.io</a> 的搜索栏并提交，就能看到具体持仓账号持有的货币信息，下面是全部持仓账号的链接</p>
+
+<p><a href="https://node.f1ex.io/#/tools/assets-viewer?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Njk4MzM3MTYsImlhdCI6MTU2MjA1NzcxNiwianRpIjoiYmNmOWU4OGEtNzE1ZC00ZGY4LThjYjctZTY0OTdhYjljMGYzIiwic2lkIjoiNDY5NmVmM2ItZjg3YS00YzZlLWI1MjctZmJkYWMzMWI4ZTY0Iiwic2lnIjoiODU3M2VjNWE0N2M2OTFkYjMwNzNmOTIyNTA2ODc5OTg5YmFhMjBiODJmY2QxZTEyNmMwN2RiNmI0YjllMDc5ZSIsInVpZCI6Ijk3YzNhZGZlLTFlYmQtMzRlNy04MTM4LTJmYTMxOTg5YjI5NyJ9.JvAcbZcggojF4pXgiq6_x7sqgfeHUxrX5ZN-JBuMwXQdFJrWXvYXwo6kKHPKCxA0uYo06QD-JCnnX5n9Q5RZe9R224amPi0zTEv74gNDbV_1Pl5UxjIDBlc_dVUzwvorABKM9lrOA3tAahPQc8nrEA6QHJUm4bCw3QFjcVgMGNw">持仓账号1</a></p>
+
+<p><a href="https://node.f1ex.io/#/tools/assets-viewer?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Njk4MzM3MTYsImlhdCI6MTU2MjA1NzcxNiwianRpIjoiN2NiMDRiOWYtY2UyNy00ZWZkLWE2NzctZjc1OGQ5OGYyMjNjIiwic2lkIjoiMWZhYTJiODQtOGM3Yi00NDI0LTkwZTAtNDYyZThmMGZmNDU3Iiwic2lnIjoiODU3M2VjNWE0N2M2OTFkYjMwNzNmOTIyNTA2ODc5OTg5YmFhMjBiODJmY2QxZTEyNmMwN2RiNmI0YjllMDc5ZSIsInVpZCI6ImVjZjIwN2YxLTA5Y2YtM2VjOS04YmRiLTQxNzJhZDhiMGFhMCJ9.Y_TuXG6W9TygZHI8YeBMdSaCuMtC0vAY1cZii23VOiaQbRCaWPEPIpuIqzhUj43Dh2MIpbQERqPwYmaxS4D5hwL3Luwfq9caMiOdodzWdIYaardpDbMHWnQr10Mw2CBG7YH9lqlv4fdd8v1RM1MPcRInlXW4_ogaA8CjNpT1tyA">持仓账号2</a></p>
+
+<p><a href="https://node.f1ex.io/#/tools/assets-viewer?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Njk4MzM3MTYsImlhdCI6MTU2MjA1NzcxNiwianRpIjoiOGJjZDQyNmMtMDg5OS00ZDMxLThlYjctNDg4NDVkYTc5YjliIiwic2lkIjoiZGRiODY1ZDQtMDUyOS00ZGU1LWIyMmUtNzIwOWI3OGU3YWQ0Iiwic2lnIjoiODU3M2VjNWE0N2M2OTFkYjMwNzNmOTIyNTA2ODc5OTg5YmFhMjBiODJmY2QxZTEyNmMwN2RiNmI0YjllMDc5ZSIsInVpZCI6IjU1YjQ2MjhkLTk2MzktM2Y0Zi1hZGMzLWQ1MTg2NDhmMjYyYyJ9.Ml5CUpfse2LMrOwP2epPztCzsa5BPD3NGdNItMaeUevjnTR3KLKdJQ1tLIZ3UeAtiK5bsFiN4TYPzVRR-spzAddE_o6uOdw9_9vkg8ZLQsbtAfNQlarzhK4cp58h9Xmap9J3dvFVZzD33rTmjZ5oCOESygFoBL9lNrAqWw8u_pE">持仓账号3</a></p>
+
+<p><a href="https://node.f1ex.io/#/tools/assets-viewer?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Njk4MzM3MTYsImlhdCI6MTU2MjA1NzcxNiwianRpIjoiNzUzM2YxYzMtZGFhMS00YzQ3LWEzNWYtOTE0MTQ2YjBjMDg2Iiwic2lkIjoiMDY1ZjY4ZjctZGEwZi00YWIyLTk5Y2QtMzdhZDlkN2YzYWQ4Iiwic2lnIjoiODU3M2VjNWE0N2M2OTFkYjMwNzNmOTIyNTA2ODc5OTg5YmFhMjBiODJmY2QxZTEyNmMwN2RiNmI0YjllMDc5ZSIsInVpZCI6IjVjMzdkNzBkLWJkYTItMzI2Yi1iMDE5LTkxNTgyNTM5MGUzZiJ9.mhMX1x6RMUExigxpdt_4JYRppSJqocupFKlA-4F9jU7SIBSgbnEZKIto_K5okjfbRXm9c-q-4XsnglvPTmr2GOb-oD4NChnsLE0yyxCpuFzWAXGTK5DB5M8exp-ubtOTuoLLp4Jlwzowm1iZeTpZG9rLAb33jrPp_5VkfJja1D8">持仓账号4</a></p>
+
+<p><a href="https://node.f1ex.io/#/tools/assets-viewer?token=eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Njk4MzM3MTYsImlhdCI6MTU2MjA1NzcxNiwianRpIjoiZjRhNjJlYTUtN2UyMy00NTIwLThlZjItN2FjNzU3YTQ1YjhiIiwic2lkIjoiMmUzYTY0NTMtYWI1OC00YTk1LThiYjktOTc1YjViYjI2ZmQ1Iiwic2lnIjoiODU3M2VjNWE0N2M2OTFkYjMwNzNmOTIyNTA2ODc5OTg5YmFhMjBiODJmY2QxZTEyNmMwN2RiNmI0YjllMDc5ZSIsInVpZCI6IjU5Y2EzOGE3LTVjZjMtMzY4Yi1iMjIwLWE3YjMxMjZhMjdjYyJ9.MuQjJxJKjh1k1q4xPJlrz9G_n7y5s1MBWOphVa9oTjMjmA8kSUEV8WLdNGulCB5ds_vDdmscuOxR86D6fYgmvqySxUqSW5BhPszViQTArCraKOmHrDp7MopOIf-0y0bHZlH4nBQ5FTcuKz6GWnQ-LcVWxJujOrQMrHiTI_0Ypxc">持仓账号5</a></p>
+
+<p>可以看出200000000个BOX是均匀分布在5个持仓账号，每个账号持有40000000个BOX
+如果BOX一直按照公布的规则严格去兑换，那么每一个持仓账号应该符合 <code>BTC数量/0.0001=EOS数量/0.15=XIN数量/0.0008=40000000-BOX数量</code></p>
+
+<p>另外，在 <a href="https://b.watch/">https://b.watch/</a> 点击申购，页面会直接显示当前BOX流通量。购买之前，不妨先核验一下每个持仓账号的加密货币配比是否正确，5个持仓账号的流通量总和，与申购页面显示的BOX流通量相差多少。</p>
+
+<h3 id="在mixin网络中公开资产的方法">在mixin网络中公开资产的方法</h3>
+
+<p>mixin不同于比特币之类的区块链项目。后者全部交易记录都直接公开给所有人，通过一个地址可以判断用户持有资产。mixin账号的持币情况外部是不可见的，但是通过相关接口可以公开自己掌控账户的资产。</p>
+
+<p>BOX项目方是通过签发<a href="https://developers.mixin.one/api/alpha-mixin-network/read-assets/">资产列表</a>接口的<a href="https://developers.mixin.one/api/alpha-mixin-network/authentication-token/">令牌</a>再公布出来，让所有人可以查询持仓账号的资产。</p>
+
+<p>而普通mixin用户，通过 <a href="https://node.f1ex.io/#/tools/assist/">https://node.f1ex.io/#/tools/assist/</a> 页面，也可以授权生成令牌，向其他人公布自己账户上的资产数量。</p>
+
+<h3 id="更深一层的思考">更深一层的思考</h3>
+
+<p>BOX通过mixin的机制实现了一个完全公开、透明的基金产品。普通投资者能通过查验上述公开信息，判断BOX有没有按照它制定的规则去运作。
+那么是不是就可以相信，BOX不会出现挪用基金资产的风险呢？这就是另一个问题，下一篇blog会详细展开分析。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">blockchain-onlooker</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-07-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/pressone-keystore/">
+            <span class="next-text nav-default">对PressOne的账号系统分析和使用建议</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/blockchain-onlooker" class="iconfont icon-github" title="github"></a>
+  <a href="http://blockchain-onlooker.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">blockchain-onlooker</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-135517826-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
